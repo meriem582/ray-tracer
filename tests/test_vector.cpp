@@ -41,3 +41,23 @@ TEST_CASE("operator- subtracts nonzero z coordinates") {
     REQUIRE(difference.y() == 4);
     REQUIRE(difference.z() == 4);
 }
+
+TEST_CASE("scalar multiplication scales each coordinate") {
+    const Vector vector(3, -4, 1);
+    const Vector scaled = 2.0 * vector;
+
+    REQUIRE(scaled.x() == 6);
+    REQUIRE(scaled.y() == -8);
+    REQUIRE(scaled.z() == 2);
+}
+
+TEST_CASE("ray equation computes O plus t times D") {
+    const Vector O(0, 8, 0);
+    const Vector D(3, -4, 0);
+    const double t = 2;
+    const Vector point = O + t * D;
+
+    REQUIRE(point.x() == 6);
+    REQUIRE(point.y() == 0);
+    REQUIRE(point.z() == 0);
+}
