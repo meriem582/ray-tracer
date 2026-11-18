@@ -90,6 +90,14 @@ development-container prompt or run `projects: open dev container`, then use
 the commands above in its terminal. For a local toolchain, install CMake,
 Ninja, and a C++20 compiler first.
 
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development setup, the TDD workflow,
+and how to work with architecture decisions. Review the [MIT license](LICENSE)
+and [Code of Conduct](CODE_OF_CONDUCT.md) before contributing. Issue and pull
+request templates are in [`.github/`](.github/); pull requests run the
+container-based checks defined in [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
+
 ## Project layout
 
 ```text
