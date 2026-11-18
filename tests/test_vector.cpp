@@ -1,6 +1,7 @@
 #include "vector.h"
 
 #include <catch2/catch_test_macros.hpp>
+#include <catch2/matchers/catch_matchers_floating_point.hpp>
 
 TEST_CASE("operator+ adds each coordinate") {
     const Vector first(3, 4, 0);
@@ -93,4 +94,19 @@ TEST_CASE("length includes nonzero z coordinates") {
     const Vector vector(3, 4, 12);
 
     REQUIRE(vector.length() == 13);
+}
+
+TEST_CASE("normalised returns a unit vector in the same direction") {
+    const Vector vector(3, -4, 0);
+    const Vector unit = vector.normalised();
+
+    REQUIRE_THAT(unit.x(), Catch::Matchers::WithinAbs(0.6, 1e-9));
+    REQUIRE_THAT(unit.y(), Catch::Matchers::WithinAbs(-0.8, 1e-9));
+    REQUIRE_THAT(unit.z(), Catch::Matchers::WithinAbs(0, 1e-9));
+}
+
+TEST_CASE("normalised vector has length one") {
+    const Vector vector(3, 4, 12);
+
+    REQUIRE_THAT(vector.normalised().length(), Catch::Matchers::WithinAbs(1, 1e-9));
 }
