@@ -1,8 +1,6 @@
 # Project instructions
 
-Configure with `cmake --preset unix-debug`, build with `cmake --build --preset unix-debug`, and test with `ctest --preset unix-debug`.
-
-Run the demo with `./build/unix-debug/raytracer` (Linux/macOS) or `.\build\unix-debug\raytracer.exe` (Windows).
+Use `make build` to configure and compile, `make run` to compile and run the demo, `make test` to compile and run tests, and `make clean` to remove the build directory. These shortcuts require GNU Make and are intended for the development container.
 
 Before changing the build, tools, or test setup, read the architecture decisions in `docs/adr/`.
 

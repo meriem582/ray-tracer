@@ -7,14 +7,29 @@ A C++ project bootstrapped for a maintainable, cross-platform ray tracer.
 - CMake 3.21 or newer
 - A C++20 compiler (GCC 10+, Clang 10+, or MSVC 19.29+)
 - Ninja
+- GNU Make for the short commands
 - Internet access on the first configure, to download Catch2
 
-The commands below work on Windows, macOS, and Linux when run with the
-included development container. You can also use a local C++20 toolchain.
+The short commands below are intended for the development container. You can
+also use CMake directly with a local C++20 toolchain.
 
-## Build and run
+## Short commands
 
-From the repository root:
+From the repository root, use:
+
+```sh
+make build  # configure and compile
+make run    # build, then run the demo
+make test   # build, then run the tests
+make clean  # remove the build directory
+```
+
+`make run` prints `Hello, World!`. The `clean` target removes all files under
+`build/`; the next build will configure the project and may download Catch2.
+
+## Build and run with CMake
+
+For a local toolchain, configure and build with:
 
 ```sh
 cmake --preset unix-debug
