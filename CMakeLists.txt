@@ -8,8 +8,9 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(raytracer_core
     src/greeting.cpp
+    src/vector.cpp
 )
-target_include_directories(raytracer_core PUBLIC include)
+target_include_directories(raytracer_core PUBLIC include src)
 
 add_executable(raytracer src/main.cpp)
 target_link_libraries(raytracer PRIVATE raytracer_core)
@@ -34,7 +35,5 @@ if(BUILD_TESTING)
     list(APPEND CMAKE_MODULE_PATH "${catch2_SOURCE_DIR}/extras")
     include(Catch)
 
-    add_executable(raytracer_tests tests/test_greeting.cpp)
-    target_link_libraries(raytracer_tests PRIVATE raytracer_core Catch2::Catch2WithMain)
-    catch_discover_tests(raytracer_tests)
+    add_subdirectory(tests)
 endif()
