@@ -61,3 +61,36 @@ TEST_CASE("ray equation computes O plus t times D") {
     REQUIRE(point.y() == 0);
     REQUIRE(point.z() == 0);
 }
+
+TEST_CASE("dot product multiplies and sums matching coordinates") {
+    const Vector first(3, 4, 0);
+    const Vector second(4, 3, 0);
+
+    REQUIRE(first.dot(second) == 24);
+}
+
+TEST_CASE("dot product is zero for perpendicular vectors") {
+    const Vector first(3, 4, 0);
+    const Vector second(4, -3, 0);
+
+    REQUIRE(first.dot(second) == 0);
+}
+
+TEST_CASE("dot product includes nonzero z coordinates") {
+    const Vector first(3, 4, 12);
+    const Vector second(4, 3, 1);
+
+    REQUIRE(first.dot(second) == 36);
+}
+
+TEST_CASE("length returns the vector magnitude") {
+    const Vector vector(3, -4, 0);
+
+    REQUIRE(vector.length() == 5);
+}
+
+TEST_CASE("length includes nonzero z coordinates") {
+    const Vector vector(3, 4, 12);
+
+    REQUIRE(vector.length() == 13);
+}
