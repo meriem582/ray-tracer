@@ -14,7 +14,6 @@ classDiagram
     Image *-- Colour : one per pixel
 ```
 
-`Sphere` currently owns a `Colour`. `Image` is a planned domain concept, not an
-implemented class; it will hold the colours of its pixels. The current
-`trace(const Ray&, const Sphere&)` function returns a `Colour`, and `main`
-prints that result.
+`Sphere` owns a `Colour`. `Image` stores a `Colour` for each pixel, addressed
+by column and row from the top left. The current `trace(const Ray&, const
+Sphere&)` function returns a `Colour`, and `main` prints that result.
