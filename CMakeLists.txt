@@ -7,8 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(raytracer_core
+    src/camera.cpp
+    src/colour.cpp
     src/greeting.cpp
     src/math/vector.cpp
+    src/ray.cpp
+    src/sphere.cpp
 )
 target_include_directories(raytracer_core PUBLIC include src)
 
@@ -18,7 +22,7 @@ target_link_libraries(raytracer PRIVATE raytracer_core)
 include(CTest)
 add_test(NAME raytracer_demo COMMAND raytracer)
 set_tests_properties(raytracer_demo PROPERTIES
-    PASS_REGULAR_EXPRESSION "Hello, World!"
+    PASS_REGULAR_EXPRESSION "1, 0, 0"
 )
 
 if(BUILD_TESTING)
