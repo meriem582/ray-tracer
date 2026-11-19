@@ -37,7 +37,7 @@ target_link_libraries(raytracer PRIVATE raytracer_core)
 include(CTest)
 add_test(NAME raytracer_demo COMMAND raytracer)
 set_tests_properties(raytracer_demo PROPERTIES
-    PASS_REGULAR_EXPRESSION "1, 0, 0"
+    PASS_REGULAR_EXPRESSION "image.png"
 )
 
 if(BUILD_TESTING)

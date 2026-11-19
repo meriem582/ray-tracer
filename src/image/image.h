@@ -10,6 +10,8 @@ private:
     int _height;
     std::vector<Colour> _pixels;
 
+    int index(int column, int row) const;
+
 public:
     Image(int width, int height);
 
