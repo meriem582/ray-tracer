@@ -25,6 +25,13 @@ TEST_CASE("Sphere is missed when its centre is six units off the ray") {
     REQUIRE_FALSE(sphere.isHitBy(ray));
 }
 
+TEST_CASE("Sphere behind the camera is missed") {
+    const Ray ray(Vector(0, 0, -1), Vector(0, 0, 1));
+    const Sphere sphere(Vector(0, 0, -11), 5, Colour(1, 0, 0));
+
+    REQUIRE_FALSE(sphere.isHitBy(ray));
+}
+
 TEST_CASE("Sphere returns its colour") {
     const Sphere sphere(Vector(0, 0, 9), 5, Colour(1, 0.5, 0));
     const Colour colour = sphere.colour();
