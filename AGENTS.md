@@ -8,7 +8,7 @@ Before changing the build, tools, test setup, or CI, read the architecture decis
 
 Never go against an accepted ADR. To change a decision, write a new ADR with status `Proposed` and ask me. Never set an ADR to `Accepted`.
 
-## Project structure
+## Source layout
 
 New classes go in the folder for their concept under `src/`, and their tests
 go in the matching folder under `tests/`.
