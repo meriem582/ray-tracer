@@ -7,12 +7,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(raytracer_core
-    src/camera.cpp
-    src/colour.cpp
+    src/colour/colour.cpp
     src/greeting.cpp
+    src/geometry/ray.cpp
+    src/geometry/sphere.cpp
     src/math/vector.cpp
-    src/ray.cpp
-    src/sphere.cpp
+    src/render/camera.cpp
 )
 target_include_directories(raytracer_core PUBLIC include src)
 
