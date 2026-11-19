@@ -1,6 +1,5 @@
 add_executable(raytracer_tests
     test_helpers.cpp
-    test_greeting.cpp
     colour/test_colour.cpp
     geometry/test_ray.cpp
     geometry/test_sphere.cpp

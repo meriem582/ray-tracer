@@ -8,7 +8,6 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(raytracer_core
     src/colour/colour.cpp
-    src/greeting.cpp
     src/geometry/ray.cpp
     src/geometry/sphere.cpp
     src/math/vector.cpp

@@ -1,6 +1,7 @@
 #include "colour/colour.h"
 #include "geometry/ray.h"
 #include "geometry/sphere.h"
+#include "test_helpers.h"
 
 #include <catch2/catch_test_macros.hpp>
 
@@ -34,9 +35,6 @@ TEST_CASE("Sphere behind the camera is missed") {
 
 TEST_CASE("Sphere returns its colour") {
     const Sphere sphere(Vector(0, 0, 9), 5, Colour(1, 0.5, 0));
-    const Colour colour = sphere.colour();
 
-    REQUIRE(colour.r() == 1);
-    REQUIRE(colour.g() == 0.5);
-    REQUIRE(colour.b() == 0);
+    requireColoursEqual(sphere.colour(), Colour(1, 0.5, 0));
 }
