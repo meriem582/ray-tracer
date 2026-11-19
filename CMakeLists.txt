@@ -8,7 +8,7 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 add_library(raytracer_core
     src/greeting.cpp
-    src/vector.cpp
+    src/math/vector.cpp
 )
 target_include_directories(raytracer_core PUBLIC include src)
 
