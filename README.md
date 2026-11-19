@@ -24,8 +24,9 @@ make test   # build, then run the tests
 make clean  # remove the build directory
 ```
 
-`make run` prints `Hello, World!`. The `clean` target removes all files under
-`build/`; the next build will configure the project and may download Catch2.
+`make run` runs a one-pixel ray-tracing demo and prints `(1, 0, 0)`. The
+`clean` target removes all files under `build/`; the next build will configure
+the project and may download Catch2.
 
 ## Build and run with CMake
 
@@ -46,10 +47,10 @@ Run the demo:
 ./build/unix-debug/raytracer
 ```
 
-Expected output:
+Expected demo output:
 
 ```text
-Hello, World!
+(1, 0, 0)
 ```
 
 ## Run tests
@@ -103,7 +104,11 @@ container-based checks defined in [`.github/workflows/ci.yml`](.github/workflows
 ```text
 .
 ├── .devcontainer/       # Shared container environment
-├── include/raytracer/   # Public project headers
-├── src/                 # Application and implementation
-└── tests/               # Catch2 tests
+├── docs/                 # Discovery report, domain model, and ADRs
+├── src/
+│   ├── colour/
+│   ├── geometry/
+│   ├── math/
+│   └── render/
+└── tests/                # Catch2 tests, organized by concept
 ```
