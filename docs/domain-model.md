@@ -1,19 +1,40 @@
 # Domain model
 
-The current one-pixel demo traces a camera ray against one sphere. `trace`
-decides the pixel colour: it returns the sphere's colour when the ray hits and
-black when it misses.
+The demo renders a camera ray through every pixel, traces it against a sphere,
+and stores the resulting colour in an `Image`. A hit gives the sphere's colour;
+a miss gives black. `Camera::render` returns the completed image, and a saver
+writes it to a file.
 
 ```mermaid
 classDiagram
+    class Camera {
+        +render(sphere, width, height) Image
+    }
     class Sphere
-    class Image
+    class Image {
+        +pixel(column, row) Colour
+        +setPixel(column, row, colour) void
+    }
     class Colour
+    class ImageSaver {
+        <<abstract>>
+        +save(image, path) void
+    }
+    class PngSaver {
+        +save(image, path) void
+    }
 
     Sphere *-- Colour : surface colour
     Image *-- Colour : one per pixel
+    Camera ..> Sphere : renders
+    Camera ..> Image : produces
+    ImageSaver ..> Image : saves
+    ImageSaver <|-- PngSaver : implements
 ```
 
-`Sphere` owns a `Colour`. `Image` stores a `Colour` for each pixel, addressed
-by column and row from the top left. The current `trace(const Ray&, const
-Sphere&)` function returns a `Colour`, and `main` prints that result.
+`Image` stores one `Colour` per pixel. Pixels are addressed by column and row
+from the top left: `pixel(column, row)` reads a pixel, and
+`setPixel(column, row, colour)` changes it. `ImageSaver` defines the saving
+contract; `PngSaver` implements it for PNG files. The saver writes the whole
+image to the requested path or throws `std::runtime_error`, so `Image` does
+not need to know about file formats.
