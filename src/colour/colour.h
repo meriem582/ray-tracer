@@ -13,3 +13,5 @@ public:
     double g() const;
     double b() const;
 };
+
+Colour operator*(double scalar, const Colour& colour);

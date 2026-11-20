@@ -23,6 +23,7 @@ add_library(raytracer_core
     src/geometry/ray.cpp
     src/geometry/sphere.cpp
     src/image/image.cpp
+    src/material/material.cpp
     src/math/vector.cpp
     src/output/png_saver.cpp
     src/render/camera.cpp

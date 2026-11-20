@@ -9,3 +9,11 @@ TEST_CASE("Colour returns its channels") {
     REQUIRE(colour.g() == 0.5);
     REQUIRE(colour.b() == 0);
 }
+
+TEST_CASE("scalar multiplication scales every colour channel") {
+    const Colour colour = 0.5 * Colour(1, 0.5, 0);
+
+    REQUIRE(colour.r() == 0.5);
+    REQUIRE(colour.g() == 0.25);
+    REQUIRE(colour.b() == 0);
+}
