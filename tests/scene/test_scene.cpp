@@ -47,3 +47,9 @@ TEST_CASE("Scene returns no hit when its only sphere is missed") {
 
     REQUIRE_FALSE(scene.nearestHit(ray).has_value());
 }
+
+TEST_CASE("Scene normalises the direction towards the light") {
+    const Scene scene(Vector(0, 3, -4));
+
+    requireVectorsEqual(scene.toLight(), Vector(0, 0.6, -0.8));
+}

@@ -12,7 +12,7 @@
 
 int main() {
     const Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 2);
-    Scene scene(Vector(-1, 1, -1).normalised());
+    Scene scene(Vector(-1, 1, -1));
     scene.add(std::make_unique<Sphere>(
         Vector(0, 0, 9), 5, Material(Colour(1, 0, 0))));
     scene.add(std::make_unique<Plane>(
