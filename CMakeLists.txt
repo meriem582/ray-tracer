@@ -29,6 +29,7 @@ add_library(raytracer_core
     src/output/png_saver.cpp
     src/render/camera.cpp
     src/render/trace.cpp
+    src/scene/scene.cpp
 )
 target_include_directories(raytracer_core PUBLIC include src)
 target_link_libraries(raytracer_core PRIVATE lodepng)
