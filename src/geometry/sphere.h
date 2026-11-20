@@ -1,8 +1,11 @@
 #pragma once
 
 #include "geometry/ray.h"
+#include "geometry/hit.h"
 #include "material/material.h"
 #include "math/vector.h"
+
+#include <optional>
 
 class Sphere {
 public:
@@ -10,6 +13,7 @@ public:
 
     Colour colour() const;
     bool isHitBy(const Ray& ray) const;
+    std::optional<Hit> hit(const Ray& ray) const;
 
 private:
     Vector _centre;

@@ -10,3 +10,7 @@ Vector Ray::origin() const {
 Vector Ray::direction() const {
     return _direction;
 }
+
+Vector Ray::at(double t) const {
+    return _origin + t * _direction;
+}
