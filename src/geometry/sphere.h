@@ -1,12 +1,12 @@
 #pragma once
 
-#include "colour/colour.h"
 #include "geometry/ray.h"
+#include "material/material.h"
 #include "math/vector.h"
 
 class Sphere {
 public:
-    Sphere(const Vector& centre, double radius, const Colour& colour);
+    Sphere(const Vector& centre, double radius, const Material& material);
 
     Colour colour() const;
     bool isHitBy(const Ray& ray) const;
@@ -14,5 +14,5 @@ public:
 private:
     Vector _centre;
     double _radius;
-    Colour _colour;
+    Material _material;
 };

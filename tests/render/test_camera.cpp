@@ -45,7 +45,7 @@ TEST_CASE("Camera ray passes through the bottom-left pixel") {
 
 TEST_CASE("Camera renders a red plus") {
     const Camera camera(Vector(0, 0, -1), Vector(0, 0, 0), 5);
-    const Sphere sphere(Vector(0, 0, 6), 5, Colour(1, 0, 0));
+    const Sphere sphere(Vector(0, 0, 6), 5, Material(Colour(1, 0, 0)));
     const Image image = camera.render(sphere, 5, 3);
 
     REQUIRE(image.width() == 5);
