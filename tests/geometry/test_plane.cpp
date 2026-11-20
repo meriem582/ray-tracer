@@ -40,6 +40,14 @@ TEST_CASE("Plane hit is empty when the ray is parallel") {
     REQUIRE_FALSE(plane.hit(ray).has_value());
 }
 
+TEST_CASE("Plane hit is empty for a ray parallel below the plane") {
+    const Plane plane(
+        Vector(0, 0, 0), Vector(0, 1, 0), Material(Colour(0, 1, 0)));
+    const Ray ray(Vector(0, -8, 0), Vector(5, 0, 0));
+
+    REQUIRE_FALSE(plane.hit(ray).has_value());
+}
+
 TEST_CASE("Plane hit is empty when the plane is behind the ray origin") {
     const Plane plane(
         Vector(0, 0, 0), Vector(0, 1, 0), Material(Colour(0, 1, 0)));
